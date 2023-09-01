@@ -41,7 +41,7 @@ namespace Svero.HelloExcel
                 var row = 2;
                 while (true) // Dangerous
                 {
-                    var transaction = ConvertRowToBankTransaction(row, sheet);
+                    var transaction = ConvertRowToJournalTransaction(row, sheet);
                     if (transaction == null)
                     {
                         break;
@@ -59,7 +59,7 @@ namespace Svero.HelloExcel
             }
         }
 
-        private static BankTransaction? ConvertRowToBankTransaction(int rowNumber, ExcelWorksheet sheet)
+        private static JournalTransaction? ConvertRowToJournalTransaction(int rowNumber, ExcelWorksheet sheet)
         {
             if (rowNumber < 1)
             {
@@ -76,7 +76,7 @@ namespace Svero.HelloExcel
                 return default;
             }
 
-            var transaction = new BankTransaction
+            var transaction = new JournalTransaction
             {
                 PlanDate = sheet.Cells[rowNumber, 1].GetValue<DateTime>(),
                 ActualDate = sheet.Cells[rowNumber, 2].Value == null ?

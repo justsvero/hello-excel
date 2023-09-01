@@ -1,6 +1,6 @@
 namespace Svero.HelloExcel
 {
-    public class BankTransaction
+    public class JournalTransaction
     {
         public long Id { get; set; }
 
@@ -14,7 +14,7 @@ namespace Svero.HelloExcel
 
         public override string ToString()
         {
-            return $"BankTransaction(Id: {Id}, PlanDate: {PlanDate.ToShortDateString()}, " + 
+            return $"JournalTransaction(Id: {Id}, PlanDate: {PlanDate.ToShortDateString()}, " + 
                 $"ActualDate: {ActualDate?.ToShortDateString()}, Description: {Description}, Value: {Value})";
         }
     }
